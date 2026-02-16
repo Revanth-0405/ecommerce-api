@@ -1,0 +1,107 @@
+{
+  "info": {
+    "name": "Ecommerce API Collection",
+    "description": "Full API test collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Generate Key",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"owner\": \"admin\", \"role\": \"admin\" }"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/auth/keys",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","v1","auth","keys"]
+        }
+      }
+    },
+
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "X-API-Key", "value": "{{API_KEY}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"sku\":\"P1\",\"name\":\"Phone\",\"description\":\"Smartphone\",\"price\":100,\"stock_quantity\":10,\"category\":\"electronics\" }"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","v1","products"]
+        }
+      }
+    },
+
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-API-Key", "value": "{{API_KEY}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","v1","products"]
+        }
+      }
+    },
+
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "X-API-Key", "value": "{{API_KEY}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"customer_name\":\"John\",\"customer_email\":\"john@test.com\",\"items\":[{\"product_id\":1,\"quantity\":2}] }"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/orders",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","v1","orders"]
+        }
+      }
+    },
+
+    {
+      "name": "Sales Report",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-API-Key", "value": "{{API_KEY}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/reports/sales-summary",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api","v1","reports","sales-summary"]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+openapi: 3.0.0
+info:
+  title: E-Commerce Inventory & Orders API
+  version: 1.0
+  description: |
+    API for managing products, inventory, and orders with token authentication.
+
+servers:
+  - url: http://localhost:5000
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+  schemas:
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        code:
+          type: string
+
+    Product:
+      type: object
+      properties:
+        sku:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        stock_quantity:
+          type: integer
+        category:
+          type: string
+
+    OrderItem:
+      type: object
+      properties:
+        product_id:
+          type: integer
+        quantity:
+          type: integer
+
+    Order:
+      type: object
+      properties:
+        customer_name:
+          type: string
+        customer_email:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+
+paths:
+
+  /api/v1/auth/keys:
+    post:
+      summary: Generate API key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                owner:
+                  type: string
+                role:
+                  type: string
+                  example: admin
+      responses:
+        '201':
+          description: API key generated
+        '400':
+          description: Invalid request
+
+  /api/v1/products:
+    get:
+      summary: List all products
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: query
+          name: search
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of products
+
+    post:
+      summary: Create product
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: Product created
+
+  /api/v1/products/{id}:
+    get:
+      summary: Get single product
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Product details
+
+    put:
+      summary: Update product
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: Product updated
+
+    delete:
+      summary: Soft delete product
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Product deleted
+
+  /api/v1/products/{id}/stock:
+    patch:
+      summary: Adjust product stock
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                adjust:
+                  type: integer
+      responses:
+        '200':
+          description: Stock updated
+
+  /api/v1/orders:
+    post:
+      summary: Create order
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          description: Order created
+
+    get:
+      summary: List all orders
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Orders list
+
+  /api/v1/orders/{order_id}:
+    get:
+      summary: Get order details
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order details
+
+  /api/v1/orders/{order_id}/status:
+    patch:
+      summary: Update order status
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+      responses:
+        '200':
+          description: Status updated
+
+  /api/v1/orders/{order_id}/cancel:
+    post:
+      summary: Cancel order
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order cancelled
+
+  /api/v1/reports/low-stock:
+    get:
+      summary: Low stock report
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: threshold
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Low stock products
+
+  /api/v1/reports/sales-summary:
+    get:
+      summary: Sales summary report
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Sales report
