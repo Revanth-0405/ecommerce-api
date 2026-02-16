@@ -6,15 +6,15 @@
 A production-style RESTful backend API that manages products, inventory, and orders for an e-commerce system.
 
 This project demonstrates real backend engineering principles used in industry systems:
-Secure API key authentication
-Role-based access control
-Atomic multi-resource transactions
-Concurrency-safe inventory update
-Hybrid SQL + NoSQL architecture
-Request rate limiting
-Reporting analytics
-Automated testing
-Containerized deployment
+* Secure API key authentication
+* Role-based access control
+* Atomic multi-resource transactions
+* Concurrency-safe inventory update
+* Hybrid SQL + NoSQL architecture
+* Request rate limiting
+* Reporting analytics
+* Automated testing
+* Containerized deployment
 
 This is designed to reflect real backend system architecture, not a tutorial project.
 
@@ -36,10 +36,10 @@ Storage Layer
 ```
 ### Why this design?
 
-clean separation of concerns
-scalable code structure
-testable business logic
-maintainable modules
+* clean separation of concerns
+* scalable code structure
+* testable business logic
+* maintainable modules
 
 ---
 
