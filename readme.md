@@ -1,7 +1,7 @@
 # E-Commerce Inventory & Orders API
 
 
-###Project Overview
+### Project Overview
 
 A production-style RESTful backend API that manages products, inventory, and orders for an e-commerce system.
 
@@ -20,7 +20,7 @@ This is designed to reflect real backend system architecture, not a tutorial pro
 
 ---
 
-#System Architecture
+# System Architecture
 
 The application follows a layered architecture pattern:
 ```
@@ -34,7 +34,7 @@ Database Models
       ↓
 Storage Layer
 ```
-Why this design?
+### Why this design?
 
 clean separation of concerns
 scalable code structure
@@ -43,7 +43,7 @@ maintainable modules
 
 ---
 
-#Technology Stack
+# Technology Stack
 
 Layer	             Technology
 Backend Framework	 Flask
@@ -57,7 +57,7 @@ Containerization	 Docker
 
 ---
 
-#Repository Structure
+# Repository Structure
 ```
 app/
  ├── middleware/
@@ -83,13 +83,13 @@ README.md
 
 ---
 
-#Authentication System
+# Authentication System
 
-Protected endpoints require:
+### Protected endpoints require:
 ```
 X-API-Key: <your-api-key>
 ```
-Keys are:
+### Keys are:
 * securely hashed
 * role-restricted
 * revocable
@@ -97,20 +97,20 @@ Keys are:
 
 ---
 
-#Feature Set
+# Feature Set
 
-###Authentication
+### Authentication
 *Generate API keys
 *Role permissions (Admin / Viewer)
 
-###Product Management
+### Product Management
 *Create products
 *Update products
 *Soft delete
 *Stock adjustment
 *Full-text search support
 
-###Order Processing
+### Order Processing
 * Create orders
 * Atomic stock deduction
 * Transaction safety
@@ -121,14 +121,14 @@ Keys are:
 
 ---
 
-#Reporting APIs
+# Reporting APIs
 * Low stock report
 * Sales summary
 * Top selling products
 
 ---
 
-#Security Features
+# Security Features
 * SHA256 key hashing
 * Role authorization
 * Rate limiting
@@ -138,48 +138,48 @@ Keys are:
 
 ---
 
-#Local Setup
+# Local Setup
 
-###Clone repository
+### Clone repository
 ```
 git clone https://github.com/YOUR_USERNAME/ecommerce-api.git
 ```
 cd ecommerce-api
 
-###Create virtual environment
+### Create virtual environment
 ```
 python -m venv venv
 ```
 
-###Activate:
+### Activate:
 ```
 venv\Scripts\activate
 ```
 
-###Install dependencies
+### Install dependencies
 ```
 pip install -r requirements.txt
 ```
 
-###Run server
+### Run server
 ```
 python run.py
 ```
 
-###Server runs at:
+### Server runs at:
 ```
 http://localhost:5000
 ```
 ---
 
-#Automated Tests
+# Automated Tests
 
-###Run:
+### Run:
 ```
 python -m pytest
 ```
 
-Includes:
+### Includes:
 * authentication tests
 * product tests
 * order flow tests
@@ -191,31 +191,31 @@ Includes:
 
 ---
 
-#Docker Deployment
+# Docker Deployment
 
-###Build image:
+### Build image:
 ```
 docker build -t ecommerce-api .
 ```
-###Run container:
+### Run container:
 ```
 docker run -p 5000:5000 ecommerce-api
 ```
 ---
 
-#API Documentation
+# API Documentation
 
 OpenAPI specification is provided:
 swagger.yaml
 
-Import into:
+### Import into:
 * Swagger UI
 * Postman
 * Insomnia
 
 ---
 
-#Standard Error Format
+# Standard Error Format
 
 All errors return consistent JSON:
 ```
@@ -226,7 +226,7 @@ All errors return consistent JSON:
 ```
 ---
 
-#Engineering Highlights
+# Engineering Highlights
 
 This project demonstrates ability to design and implement:
 * Scalable backend architecture
@@ -238,7 +238,7 @@ This project demonstrates ability to design and implement:
 
 ---
 
-#Possible Enhancements
+# Possible Enhancements
 
 Future production improvements could include:
 * PostgreSQL database
