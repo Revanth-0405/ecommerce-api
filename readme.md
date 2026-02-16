@@ -248,3 +248,11 @@ Future production improvements could include:
 * Async task workers
 * Monitoring dashboards
 * CI/CD pipeline
+
+---
+
+# Output
+
+20 test cases passed
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b2a3e570-5fcd-46df-a9df-d6b41f11cb6d" />
+
