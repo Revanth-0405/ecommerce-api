@@ -6,18 +6,20 @@ Project Overview
 A production-style RESTful backend API that manages products, inventory, and orders for an e-commerce system.
 
 This project demonstrates real backend engineering principles used in industry systems:
->Secure API key authentication
->Role-based access control
->Atomic multi-resource transactions
->Concurrency-safe inventory update
->Hybrid SQL + NoSQL architecture
->Request rate limiting
->Reporting analytics
->Automated testing
->Containerized deployment
+Secure API key authentication
+Role-based access control
+Atomic multi-resource transactions
+Concurrency-safe inventory update
+Hybrid SQL + NoSQL architecture
+Request rate limiting
+Reporting analytics
+Automated testing
+Containerized deployment
 
 This is designed to reflect real backend system architecture, not a tutorial project.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 System Architecture
 
 The application follows a layered architecture pattern:
@@ -34,11 +36,13 @@ Storage Layer
 
 Why this design?
 
->clean separation of concerns
->scalable code structure
->testable business logic
->maintainable modules
+clean separation of concerns
+scalable code structure
+testable business logic
+maintainable modules
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Technology Stack
 
 Layer	            Technology
@@ -50,7 +54,9 @@ Authentication	    API Keys + SHA256
 Testing	            Pytest
 Documentation	    OpenAPI / Swagger
 Containerization	Docker
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Repository Structure
 app/
  ├── middleware/      # Auth, logging, rate limiting
@@ -71,7 +77,9 @@ run.py                # Application entrypoint
 requirements.txt
 swagger.yaml
 Dockerfile
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Authentication System
 
 Protected endpoints require:
@@ -83,7 +91,9 @@ securely hashed
 role-restricted
 revocable
 rate limited
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Feature Set
 
 Authentication
@@ -105,12 +115,16 @@ Cancel order (stock restoration)
 Status workflow enforcement
 pending → confirmed → shipped
 Invalid transitions are automatically rejected.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Reporting APIs
 Low stock report
 Sales summary
 Top selling products
+
 -------------------------------------------------------------------------
+
 Security Features
 SHA256 key hashing
 Role authorization
@@ -118,7 +132,9 @@ Rate limiting
 Input validation
 Transaction integrity
 Thread-safe operations
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Local Setup
 
 Clone repository
@@ -140,7 +156,9 @@ python run.py
 
 Server runs at:
 http://localhost:5000
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Automated Tests
 
 Run:
@@ -156,7 +174,9 @@ rate limiting tests
 ✔ 20+ test cases
 ✔ business logic coverage
 ✔ API validation
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Docker Deployment
 
 Build image:
@@ -164,7 +184,9 @@ docker build -t ecommerce-api .
 
 Run container:
 docker run -p 5000:5000 ecommerce-api
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 API Documentation
 
 OpenAPI specification is provided:
@@ -174,7 +196,9 @@ Import into:
 Swagger UI
 Postman
 Insomnia
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Standard Error Format
 
 All errors return consistent JSON:
@@ -183,7 +207,9 @@ All errors return consistent JSON:
   "error": "Message",
   "code": "ERROR_CODE"
 }
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Engineering Highlights
 
 This project demonstrates ability to design and implement:
@@ -193,7 +219,9 @@ Concurrent request handling
 Layered service design
 Secure authentication systems
 Automated testing strategy
+
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
 Possible Enhancements
 
 Future production improvements could include:
