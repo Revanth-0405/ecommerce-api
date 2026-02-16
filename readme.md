@@ -60,24 +60,26 @@ Containerization	Docker
 Repository Structure
 
 app/
- ├── middleware/      # Auth, logging, rate limiting
- ├── models/          # Database schema
- ├── routes/          # API endpoints
- ├── services/        # Business logic
- ├── utils/           # Error handlers
+ ├── middleware/
+ ├── models/
+ ├── routes/
+ ├── services/
+ ├── utils/
  ├── config.py
  └── db.py
 
 storage/
- └── orders.json      # Order storage (NoSQL)
+ └── orders.json
 
-tests/                # Automated test suite
+tests/
 
-postman_collection.json
-run.py                # Application entrypoint
+postman_collection.json   # Postman API test collection
+swagger.yaml               # OpenAPI documentation
+Dockerfile                 # Container config
 requirements.txt
-swagger.yaml
-Dockerfile
+run.py
+README.md
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
