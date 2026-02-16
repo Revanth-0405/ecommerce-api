@@ -58,6 +58,7 @@ Containerization	Docker
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 Repository Structure
+
 app/
  ├── middleware/      # Auth, logging, rate limiting
  ├── models/          # Database schema
