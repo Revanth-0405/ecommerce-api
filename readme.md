@@ -23,7 +23,7 @@ This is designed to reflect real backend system architecture, not a tutorial pro
 System Architecture
 
 The application follows a layered architecture pattern:
-
+```
 Client Request
       ↓
 Routes Layer
@@ -33,7 +33,7 @@ Service Layer
 Database Models
       ↓
 Storage Layer
-
+```
 Why this design?
 
 clean separation of concerns
@@ -58,7 +58,7 @@ Containerization	Docker
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 Repository Structure
-
+```
 app/
  ├── middleware/
  ├── models/
@@ -79,7 +79,7 @@ Dockerfile                 # Container config
 requirements.txt
 run.py
 README.md
-
+```
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
