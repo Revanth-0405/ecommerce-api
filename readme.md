@@ -45,15 +45,16 @@ Storage Layer
 
 # Technology Stack
 
-* Layer	             Technology
-* Backend Framework	 Flask
-* ORM	                   SQLAlchemy
-* Database	             SQLite
-* NoSQL Storage          JSON File
-* Authentication         API Keys + SHA256
-* Testing                Pytest
-* Documentation	       OpenAPI / Swagger
-* Containerization	 Docker
+| Layer             | Technology        |
+| ----------------- | ----------------- |
+| Backend Framework | Flask             |
+| ORM               | SQLAlchemy        |
+| Database          | SQLite            |
+| NoSQL Storage     | JSON File         |
+| Authentication    | API Keys + SHA256 |
+| Testing           | Pytest            |
+| Documentation     | OpenAPI / Swagger |
+| Containerization  | Docker            |
 
 ---
 
